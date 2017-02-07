@@ -113,24 +113,6 @@
             expect(ctrl.showLoginFrom).toBe(false);
         });
 
-        it('should log in and show logout button', function() {
-            var ctrl = $controller('LoginController', {
-              $timeout: $timeout,
-              LoginService: LoginService
-            });
-
-            ctrl.userName = 'afernandez';
-            ctrl.password = 'afernandez2';
-
-            expect(ctrl.showLoginFrom).toBe(true);
-
-            ctrl.login();
-            $rootScope.$apply();
-
-            expect(ctrl.showLoginFrom).toBe(false);
-        });
-
-
     });
 
 })();
