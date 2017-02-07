@@ -1,7 +1,9 @@
 {
   "name": "AngularJS-Tabata-Demo",
+  "namelower": "angularjs-tabata-demo",
   "version": "0.0.1",
   "description": "AngularJS Tabata Demo",
+  "readme": "README.md",
   "authors": [
     "Alejandro Fabricio Fernandez"
   ],
