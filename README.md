@@ -16,6 +16,7 @@ npm install --global bower
 npm install --global gulp-cli
 
 ----------- Client - compile ---------------
+npm install
 bower install
 
 ----------- Client - Run the tests ---------------
