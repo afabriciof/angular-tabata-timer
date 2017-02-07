@@ -1,0 +1,57 @@
+<div class="container-fluid" ng-show="vm.userLoggedIn">
+
+     <div class="row">
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-5">
+            <h3>Timer</h3>
+            <div class="row" ng-show="!vm.isRunning">
+                <div class="col-sm-12">
+                    <h1>
+                        <input type="number" ng-model="vm.hours" min="0" max="24">
+                        :
+                        <input type="number" ng-model="vm.minutes" min="0" max="60">
+                        :
+                        <input type="number" ng-model="vm.seconds" min="0" max="60">
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row" ng-show="vm.isRunning">
+                <h1>
+                    <div class="col-sm-12">{{vm.hours | pad}} : {{vm.minutes | pad}} : {{vm.seconds | pad}}</div>
+                </h1>
+            </div>
+        </div>
+
+        <div class="col-sm-5">
+          <h3>Settings</h3>
+          <div class="row">
+
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-primary" ng-click="vm.startStop()">{{vm.StartStop}}</button>
+            </div>
+
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-warning" ng-click="vm.reset()">Reset</button>
+            </div>
+
+            <div class="col-sm-3"></div>
+
+            <div class="col-sm-3"></div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-1"></div>
+    </div>
+
+    <div class="row" ng-show="vm.debugOn">
+        <h3>Debug Section</h3>
+        <div class="row">
+            <div class="col-sm-12">{{vm.isRunning}}</div>
+        </div>
+    </div>
+
+</div>

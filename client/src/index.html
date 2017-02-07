@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Timer</title>
+
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+
+    <link rel="stylesheet" href="app.css" />
+
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+
+    <script src="/common/common.module.js"></script>
+    <script src="/common/pad/pad.filter.js"></script>
+    <script src="/common/menu/menu.directive.js"></script>
+    <script src="/common/service/object.service.js"></script>
+
+    <script src="/login/login.module.js"></script>
+    <script src="/login/login.service.js"></script>
+    <script src="/login/login.component.js"></script>
+
+    <script src="/person/person.module.js"></script>
+    <script src="/person/person.service.js"></script>
+
+    <script src="/audio/audio.module.js"></script>
+    <script src="/audio/audio.service.js"></script>
+
+    <script src="/timer/timer.module.js"></script>
+    <script src="/timer/timer.component.js"></script>
+    <script src="/timer/timer.service.js"></script>
+
+    <script src="/tabata/tabata.module.js"></script>
+    <script src="/tabata/tabata.component.js"></script>
+
+  </head>
+  <body>
+
+    <!-- Header -->
+    <div class="jumbotron text-center">
+      <h1>Timer App</h1>
+      <p>Gym timers!</p>
+    </div>
+
+    <!-- Login -->
+    <login></login>
+
+    <!-- Menu -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/#!">Timer</a>
+        </div>
+        <ul class="nav navbar-nav" menu>
+            <li class="active"><a href="/#!/timer">Classic</a></li>
+            <li><a href="/#!/tabata">Tabata</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Body -->
+    <div class="view-container">
+        <div ng-view class="view-frame"></div>
+    </div>
+
+  </body>
+</html>

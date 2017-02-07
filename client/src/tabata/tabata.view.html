@@ -1,0 +1,115 @@
+<div class="container-fluid" ng-show="vm.userLoggedIn">
+
+   <div class="row">
+
+    <div class="col-sm-2"></div>
+
+    <div class="col-sm-4">
+        <div class="row"><div class="well">Timer</div></div>
+        <div class="row">
+            <h4>Status</h4>
+            <h1>
+                <div class="col-sm-12">{{vm.state}}</div>
+            </h1>
+        </div>
+        <div class="row">
+            <h4>Clock</h4>
+            <h1>
+                <div class="col-sm-12">{{vm.runningConfig.timer.hours | pad}} : {{vm.runningConfig.timer.minutes | pad}} : {{vm.runningConfig.timer.seconds | pad}}</div>
+            </h1>
+        </div>
+        <div class="row">
+            <h4>Remaining Cycles</h4>
+            <h1>
+                <div class="col-sm-12">{{vm.runningConfig.cycles}}</div>
+            </h1>
+        </div>
+        <div class="row">
+            <h4>Remaining Tabatas</h4>
+            <h1>
+                <div class="col-sm-12">{{vm.runningConfig.tabatas}}</div>
+            </h1>
+        </div>
+    </div>
+
+    <div class="col-sm-1"></div>
+
+    <div class="col-sm-4">
+      <div class="row"><div class="well">Settings</div></div>
+      <div class="row">
+
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Prepare:</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" ng-model="vm.setting.prepare" min="0" max="60">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Work:</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" ng-model="vm.setting.work" min="0" max="60">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Rest:</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" ng-model="vm.setting.rest" min="0" max="60">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Cycles:</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" ng-model="vm.setting.cycles" min="0" max="16">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Tabatas:</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" ng-model="vm.setting.tabatas" min="0" max="5">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2">
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-primary" ng-click="vm.startStop()">{{vm.StartStop}}</button>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" ng-disabled="vm.disablePauseResume" class="btn btn-warning" ng-click="vm.pauseResume()">{{vm.PauseResume}}</button>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-warning" ng-click="vm.saveSettings()">Save settings</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="alert alert-warning" ng-show="vm.showHttpError">
+              <strong>Warning!</strong> Settings were not saved due to server error, please try again later.
+          </div>
+      </div>
+  </form>
+
+</div>
+
+</div>
+
+<div class="col-sm-1"></div>
+</div>
+
+<div class="row" ng-show="vm.debugOn">
+    <h3>Debug Section</h3>
+    <div class="row"><div class="col-sm-12">{{vm.isRunning}}</div></div>
+    <div class="row"></div>
+    <div class="row"><div class="col-sm-12">{{vm.runningConfig.prepare}}</div></div>
+    <div class="row"><div class="col-sm-12">{{vm.runningConfig.work}}</div></div>
+    <div class="row"><div class="col-sm-12">{{vm.runningConfig.rest}}</div></div>
+    <div class="row"><div class="col-sm-12">{{vm.runningConfig.cycles}}</div></div>
+    <div class="row"><div class="col-sm-12">{{vm.runningConfig.tabatas}}</div></div>
+    <div class="row"></div>
+    <div class="row"><div class="col-sm-12">{{vm.runningConfig.timer.hours}}</div></div>
+    <div class="row"><div class="col-sm-12">{{vm.runningConfig.timer.minutes}}</div></div>
+    <div class="row"><div class="col-sm-12">{{vm.runningConfig.timer.seconds}}</div></div>
+</div>
+
+</div>
