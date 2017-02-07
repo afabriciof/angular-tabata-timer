@@ -69,4 +69,12 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', ['karma:development']);
 
+  grunt.registerTask('build',
+    [
+      'jshint',
+      'karma:development',
+      'concat',
+      'uglify'
+    ]);
+
 };
