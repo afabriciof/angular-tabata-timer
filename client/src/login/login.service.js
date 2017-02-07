@@ -28,7 +28,7 @@
         }
 
         function performLogin(userName, password) {
-            if (userName != null && userName != '' && userName === password) {
+            if (userName !== null && userName !== '' && userName === password) {
                 return PersonService.getPerson(userName);
             } else {
                 return $q.reject(service.INCORRECT_LOGIN);
@@ -43,6 +43,6 @@
             $rootScope.$broadcast('userLoggedIn', $rootScope.userLoggedIn);
         }
 
-    };
+    }
 
 })();

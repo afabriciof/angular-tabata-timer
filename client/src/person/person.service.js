@@ -39,8 +39,6 @@
         function deletePerson(id) {
           return $http.delete(urlBase + '/' + id);
         }
-
-
-    };
+    }
 
 })();

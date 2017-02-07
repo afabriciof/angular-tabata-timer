@@ -26,7 +26,7 @@
                         });
                 }
             }
-        };
+        }
 
         beforeEach(module('login'));
         beforeEach(module('common'));

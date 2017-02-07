@@ -223,12 +223,12 @@
                 vm.state = 'Rest';
                 vm.timeoutPromise = $timeout(decrementCounter, 1000);
             } else if (vm.state === 'Rest') {
-                if (vm.runningConfig.cycles != 0) {
+                if (vm.runningConfig.cycles !== 0) {
                     --vm.runningConfig.cycles;
                     loadWork();
                     vm.state = 'Work';
                     vm.timeoutPromise = $timeout(decrementCounter, 1000);
-                } else if (vm.runningConfig.tabatas != 0) {
+                } else if (vm.runningConfig.tabatas !== 0) {
                     vm.runningConfig.cycles = vm.config.cycles;
                     --vm.runningConfig.tabatas;
                     loadPrepare();

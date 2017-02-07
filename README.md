@@ -15,12 +15,13 @@ npm install http-server -g
 npm install --global bower
 npm install --global gulp-cli
 
------------ Client - compile ---------------
+----------- Client - Init ---------------
 npm install
 bower install
 
------------ Client - Run the tests ---------------
-karma start
+----------- Client - Commands ---------------
+grunt test
+grunt jshint
 
 ----------- Client - Run the app ---------------
 http-server -o
