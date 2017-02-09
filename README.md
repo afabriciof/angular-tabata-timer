@@ -12,16 +12,14 @@ npm install karma -g
 npm install karma-jasmine karma-chrome-launcher jasmine-core -g
 npm install karma-cli -g
 npm install http-server -g
-npm install --global bower
-npm install --global gulp-cli
 
 ----------- Client - Init ---------------
 npm install
-bower install
 
 ----------- Client - Commands ---------------
 grunt test
 grunt jshint
+grunt build
 
 ----------- Client - Run the app ---------------
 http-server -o

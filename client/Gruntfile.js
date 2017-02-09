@@ -56,7 +56,7 @@ module.exports = function (grunt) {
 
     'uglify': {
       'options': {
-        'mangle': true
+        'mangle': false
       },  
       'dist': {
         'files': {
