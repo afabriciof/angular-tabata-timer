@@ -2,3 +2,4 @@
 /server/target
 /client/src/bower_components
 /client/node_modules
+/client/dist
