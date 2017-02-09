@@ -4,7 +4,7 @@
     angular.module('timer')
 
     .component('timer', {
-        templateUrl: 'timer/timer.view.html',
+        templateUrl: 'src/timer/timer.view.html',
         controller: "TimerController as vm"
     })
 

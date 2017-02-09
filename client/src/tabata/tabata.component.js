@@ -4,7 +4,7 @@
     angular.module('tabata')
 
     .component('tabata', {
-        templateUrl: 'tabata/tabata.view.html',
+        templateUrl: 'src/tabata/tabata.view.html',
         controller: "TabataController as vm"
         })
 

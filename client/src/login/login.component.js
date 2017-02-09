@@ -4,7 +4,7 @@
     angular.module('login')
 
     .component('login', {
-        templateUrl: 'login/login.view.html',
+        templateUrl: 'src/login/login.view.html',
         controller: "LoginController as vm"
     })
 
