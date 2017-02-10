@@ -6,7 +6,6 @@
 
 	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
 
-
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <script src="/bower_components/angular-route/angular-route.js"></script>
@@ -14,6 +13,12 @@
 
     <link rel="stylesheet" href="app.css" />
 
+	<!-- build:template:dist -->
+	<%= application %>
+    
+	<!-- /build -->
+	
+	<!-- build:remove:dist -->
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
 
@@ -38,6 +43,7 @@
 
     <script src="/tabata/tabata.module.js"></script>
     <script src="/tabata/tabata.component.js"></script>
+	<!-- /build -->
 
   </head>
   <body>

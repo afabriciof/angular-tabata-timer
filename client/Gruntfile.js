@@ -8,6 +8,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-processhtml');
 
   grunt.initConfig({
     'pkg': grunt.file.readJSON('package.json'),
@@ -101,6 +102,19 @@ module.exports = function (grunt) {
 	  },
 	},
 
+  'processhtml': {
+    'options': {
+      'data': {
+        'application': '<script src="dist/<%= pkg.namelower %>-<%= pkg.version %>.min.js"></script>'
+      }
+    },
+    'dist': {
+      'files': {
+        'dist/index.html': ['dist/index.html']
+      }
+    }
+  },
+
     'compress': {
       'dist': {
         'options': {
@@ -111,6 +125,7 @@ module.exports = function (grunt) {
 			{expand: true, flatten: true, src: ['dist/*.css'], dest: '', filter: 'isFile'},
 			{expand: true, flatten: false, cwd: 'src/', src: ['bower_components/**'], dest: '', filter: 'isFile'},
 			{expand: true, flatten: false, src: ['dist/*.js'], dest: '', filter: 'isFile'},
+            {expand: true, flatten: false, cwd: 'src/',  src: ['audio/resources/*.*'], dest: '', filter: 'isFile'}
         ]
       }
     },
@@ -129,7 +144,9 @@ module.exports = function (grunt) {
       'uglify',
 	  'clean:temp',
 	  'copy',
+	  'processhtml:dist',
 	  'compress:dist'
 	]);
+
 
 };
