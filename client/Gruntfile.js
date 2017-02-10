@@ -7,6 +7,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.initConfig({
     'pkg': grunt.file.readJSON('package.json'),
@@ -90,14 +91,27 @@ module.exports = function (grunt) {
       }
     },
 
+	'copy': {
+	  'main': {
+		'files': [
+		  // includes files within path
+		  {expand: true, flatten: true, src: ['src/*.css'], dest: 'dist/', filter: 'isFile'},
+		  {expand: true, flatten: true, src: ['src/index.html'], dest: 'dist/', filter: 'isFile'}
+		],
+	  },
+	},
+
     'compress': {
       'dist': {
         'options': {
           'archive': 'dist/<%= pkg.name %>-<%= pkg.version %>.zip'
         },
-        'files': [{
-          'src': [ 'src/index.html', 'dist/*.js', 'dist/*.css', 'src/bower_components/**' ]
-        }]
+        'files': [
+			{expand: true, flatten: true, src: ['dist/*.html'], dest: '', filter: 'isFile'},
+			{expand: true, flatten: true, src: ['dist/*.css'], dest: '', filter: 'isFile'},
+			{expand: true, flatten: false, cwd: 'src/', src: ['bower_components/**'], dest: '', filter: 'isFile'},
+			{expand: true, flatten: false, src: ['dist/*.js'], dest: '', filter: 'isFile'},
+        ]
       }
     },
 
@@ -114,6 +128,7 @@ module.exports = function (grunt) {
       'concat',
       'uglify',
 	  'clean:temp',
+	  'copy',
 	  'compress:dist'
 	]);
 
