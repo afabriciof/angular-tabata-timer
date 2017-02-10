@@ -60,6 +60,7 @@ module.exports = function (grunt) {
 
 	'ngtemplates':  {
 	  'app':        {
+		'cwd':      'src/',
 		'src':      '**/*view.html',
 		'dest':     'tmp/templates.js'
 	  }

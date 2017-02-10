@@ -4,7 +4,7 @@
     angular.module('tabata')
 
     .component('tabata', {
-        templateUrl: 'src/tabata/tabata.view.html',
+        templateUrl: 'tabata/tabata.view.html',
         controller: "TabataController as vm"
         })
 
@@ -229,7 +229,7 @@
                     vm.state = 'Work';
                     vm.timeoutPromise = $timeout(decrementCounter, 1000);
                 } else if (vm.runningConfig.tabatas !== 0) {
-                    vm.runningConfig.cycles = vm.config.cycles;
+                    vm.runningConfig.cycles = vm.setting.cycles;
                     --vm.runningConfig.tabatas;
                     loadPrepare();
                     vm.state = 'Prepare';
