@@ -4,20 +4,19 @@
     <meta charset="utf-8">
     <title>Timer</title>
 
-	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- build:template:dist
+    <%= application %>
+    /build -->
+
+    <!-- build:remove:dist -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
 
     <script src="/lib/angular/angular.js"></script>
     <script src="/lib/angular-resource/angular-resource.js"></script>
     <script src="/lib/angular-route/angular-route.js"></script>
     <script src="/lib/angular-cookies/angular-cookies.js"></script>
 
-    <link rel="stylesheet" href="app.css" />
-
-	<!-- build:template:dist -->
-	<%= application %>
-	<!-- /build -->
-
-	<!-- build:remove:dist -->
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
 
@@ -42,7 +41,7 @@
 
     <script src="/tabata/tabata.module.js"></script>
     <script src="/tabata/tabata.component.js"></script>
-	<!-- /build -->
+    <!-- /build -->
 
   </head>
   <body>

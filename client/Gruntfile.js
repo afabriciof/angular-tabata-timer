@@ -50,7 +50,7 @@ module.exports = function (grunt) {
 		  singleRun: false
         }
       },
-      'deploy': {
+      'dist': {
         'configFile': 'karma.conf.js',
         'options': {
           'files': [
@@ -116,8 +116,15 @@ module.exports = function (grunt) {
   'processhtml': {
     'options': {
       'data': {
-        'application': '<script src="dist/<%= pkg.namelower %>-<%= pkg.version %>.min.js"></script>'
-      }
+        'application': 
+			'<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />\n' +
+			'<link rel="stylesheet" href="app.css" />\n' +
+			'<script src="/lib/angular/angular.min.js"></script>\n' +
+			'<script src="/lib/angular-resource/angular-resource.min.js"></script>\n' +
+			'<script src="/lib/angular-route/angular-route.min.js"></script>\n' +
+			'<script src="/lib/angular-cookies/angular-cookies.min.js"></script>\n' +
+			'<script src="dist/<%= pkg.namelower %>-<%= pkg.version %>.min.js"></script>\n'
+	  }
     },
     'dist': {
       'files': {
@@ -153,7 +160,7 @@ module.exports = function (grunt) {
     [
 	  'clean:dist',
       'jshint',
-      'karma:deploy',
+      'karma:dist',
 	  'ngtemplates',
       'concat',
       'uglify',
