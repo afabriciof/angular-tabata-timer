@@ -17,6 +17,7 @@
         var vm = this;
 
         vm.showHttpError = false;
+        vm.showHttpSuccess = false;
         vm.disablePauseResume = true;
         vm.isRunning = false;
         vm.debugOn = false;
@@ -62,6 +63,7 @@
         function saveSettings() {
             console.debug('saveSettings');
             vm.showHttpError = false;
+            vm.showHttpSuccess = false;
 
             var person = vm.userData;
 
@@ -76,6 +78,7 @@
             PersonService.updatePerson(personId, person)
               .then(function(response) {
                 console.debug('update Person http success!');
+                vm.showHttpSuccess = true;
               })
               .catch(function(error) {
                 console.debug('update Person http error');
