@@ -15,11 +15,11 @@ module.exports = function (grunt) {
 
     'meta': {
       'jsFilesForTesting': [
-        'src/bower_components/angular/angular.js',
-        'src/bower_components/angular-route/angular-route.js',
-        'src/bower_components/angular-resource/angular-resource.js',
-        'src/bower_components/angular-mocks/angular-mocks.js',
-        'src/bower_components/angular-cookies/angular-cookies.js',
+        'src/lib/angular/angular.js',
+        'src/lib/angular-route/angular-route.js',
+        'src/lib/angular-resource/angular-resource.js',
+        'src/lib/angular-mocks/angular-mocks.js',
+        'src/lib/angular-cookies/angular-cookies.js',
 
         'src/**/*.module.js',
 
@@ -47,6 +47,16 @@ module.exports = function (grunt) {
           'files': [
             '<%= meta.jsFilesForTesting %>'
           ],
+		  singleRun: false
+        }
+      },
+      'deploy': {
+        'configFile': 'karma.conf.js',
+        'options': {
+          'files': [
+            '<%= meta.jsFilesForTesting %>'
+          ],
+		  singleRun: true
         }
       }
 	},
@@ -54,7 +64,7 @@ module.exports = function (grunt) {
     'jshint': {
       'beforeconcat': [
 		  'src/**/*.js',
-	  	  '!src/bower_components/**',
+	  	  '!src/lib/**',
 		  ]
     },  
 
@@ -75,7 +85,7 @@ module.exports = function (grunt) {
 			'src/**/*module.js',
 			'src/**/*.js',
 			'tmp/*.js',
-  			'!src/bower_components/**',
+  			'!src/lib/**',
   			'!src/**/*.spec.js'
 		],
         'dest': 'dist/<%= pkg.namelower %>-<%= pkg.version %>.js'
@@ -124,7 +134,7 @@ module.exports = function (grunt) {
         'files': [
 			{expand: true, flatten: true, src: ['dist/*.html'], dest: '', filter: 'isFile'},
 			{expand: true, flatten: true, src: ['dist/*.css'], dest: '', filter: 'isFile'},
-			{expand: true, flatten: false, cwd: 'src/', src: ['bower_components/**'], dest: '', filter: 'isFile'},
+			{expand: true, flatten: false, cwd: 'src/', src: ['lib/**'], dest: '', filter: 'isFile'},
 			{expand: true, flatten: false, src: ['dist/*.js'], dest: '', filter: 'isFile'},
             {expand: true, flatten: false, cwd: 'src/',  src: ['audio/resources/*.*'], dest: '', filter: 'isFile'}
         ]
@@ -133,13 +143,17 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.registerTask('test', ['karma:development']);
+  grunt.registerTask('dev', 
+	[
+	  	'clean:dist',
+		'karma:development'
+	]);
 
   grunt.registerTask('build',
     [
 	  'clean:dist',
       'jshint',
-      'karma:development',
+      'karma:deploy',
 	  'ngtemplates',
       'concat',
       'uglify',
