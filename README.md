@@ -44,12 +44,12 @@ grunt dev
 
 ## Client - Run the app in Dev mode
 cd /client/src
-http-server -o
+http-server -d=false
 
 ## Client - Run the app in Deploy mode
 cd /client
 grunt build
 uncompress dist/AngularJS-Tabata-Demo-x.x.x.zip in a temp folder
 from the temp folder run
-http-server -o
+http-server -d=false
 
