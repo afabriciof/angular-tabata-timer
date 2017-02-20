@@ -6,7 +6,7 @@ The application calls a Rest service implemented in Java using the Spring Framew
 
 This is a SPA (Single Page Application), as it is usual with AngularJS.
 
-Check this [introductory video](https://www.youtube.com/watch?v=6N-XI8WdHf8)
+Check this [introductory video](https://www.youtube.com/watch?v=DHezsfR8l-k)
 
 Main sections are:
 
