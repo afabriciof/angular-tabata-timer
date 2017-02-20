@@ -23,11 +23,16 @@ At the start of the exercise we have a preparation period.
 
 When the user clicks the Save settings button, the call to the java backend takes place.
 
-## Server - Run the app
-Install a posgre server. 
-Add an empty database named tabata. username = password = tabata
 
-From the application.properties you can change the db engine driver if you prefer.
+## Server - Install
+Install Java 8 ([https://java.com/download/](https://java.com/download/))
+Install Maven ([https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi))
+Install a posgre server ([https://www.postgresql.org/download/](https://www.postgresql.org/download/))
+
+Add an empty database named tabata. username = password = tabata
+From the application.properties (server\src\main\resources\) you can change the db engine driver if you prefer.
+
+## Server - Run the app
 
 cd /server
 mvnw spring-boot:run
