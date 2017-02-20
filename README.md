@@ -38,22 +38,31 @@ The application will automatically start and create the schema + initial data.
 Install [https://nodejs.org/en/download/](nodejs)
 
 cd /client
+
 npm install
 
 ## Client - Dev mode 
 
 Start Karma Server for continuous Unit Test Run:
+
 grunt dev
 
 Run the app in Dev mode:
+
 cd /client/src
+
 http-server -d=false
 
 open 127.0.0.1 in your browser
 
 ## Client - Run the app in Deploy mode
+
 cd /client
+
 grunt build
+
 uncompress dist/AngularJS-Tabata-Demo-x.x.x.zip in a temp folder
+
 from the temp folder run
+
 http-server -d=false
