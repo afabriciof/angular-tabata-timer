@@ -33,8 +33,18 @@ module.exports = function(config) {
  
     // optionally, configure the reporter 
     coverageReporter: {
-      type : 'html',
-      dir : 'dist/coverage/'
+      dir : 'dist/coverage/',
+      reporters: [
+        { type: 'html', subdir: 'report-html' }
+	  ],
+      check: {
+		global: {
+			statements: 40,
+			lines: 40,
+			functions: 40,
+			branches: 40
+		}
+      }
     },
 
     // web server port

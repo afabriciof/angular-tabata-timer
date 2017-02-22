@@ -29,9 +29,9 @@
     "grunt-jsdoc": "0.5.4",
     "grunt-karma": "0.8.3",
     "grunt-processhtml": "^0.4.1",
-    "karma-coverage": "~0.2.1",
     "karma": "0.12.16",
     "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "~0.4.1",
     "karma-jasmine": "0.1.5",
     "karma-phantomjs-launcher": "^1.0.2"
   },
