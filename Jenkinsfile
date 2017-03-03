@@ -1,9 +1,21 @@
 pipeline {
-    agent { docker 'node:6.3' }
+    agent { docker 'node:4.5.0' }
+
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'npm --version'
+                echo 'Building..'
+		sh 'scripts.sh build'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
