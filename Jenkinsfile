@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-		sh 'scripts.sh build'
+		./scripts.sh build
             }
         }
         stage('Test') {
