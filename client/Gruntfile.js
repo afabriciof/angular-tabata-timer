@@ -170,5 +170,17 @@ module.exports = function (grunt) {
 	  'compress:dist'
 	]);
 
+  grunt.registerTask('jenkins-build',
+    [
+	  'clean:dist',
+	  'ngtemplates',
+      'concat',
+      'uglify',
+	  'clean:temp',
+	  'copy',
+	  'processhtml:dist',
+	  'compress:dist'
+	]);
+
 
 };
