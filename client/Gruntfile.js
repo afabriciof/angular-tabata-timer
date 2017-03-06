@@ -182,5 +182,30 @@ module.exports = function (grunt) {
 	  'compress:dist'
 	]);
 
+  grunt.registerTask('jenkins-style',
+    [
+	  'clean:dist',
+      'jshint'
+	]);
+
+  grunt.registerTask('jenkins-test',
+    [
+	  'clean:dist',
+      'karma:dist',
+	]);
+
+  grunt.registerTask('jenkins-deploy',
+    [
+	  'clean:dist',
+      'jshint',
+      'karma:dist',
+	  'ngtemplates',
+      'concat',
+      'uglify',
+	  'clean:temp',
+	  'copy',
+	  'processhtml:dist',
+	  'compress:dist'
+	]);
 
 };
