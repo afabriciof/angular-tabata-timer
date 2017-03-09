@@ -2,7 +2,6 @@
     'use strict';
 
     angular.module('timer')
-    meto una falla
 
     .component('timer', {
         templateUrl: 'timer/timer.view.html',

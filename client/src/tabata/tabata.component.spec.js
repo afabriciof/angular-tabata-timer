@@ -138,6 +138,20 @@
             expect(vm.showHttpError).toBe(false);
         });
 
+        it('should properly save the settings', function() {
+            // user configures the tabata settings
+            vm.userData.setting.prepare = 30;
+            vm.userData.setting.work = 29;
+            vm.userData.setting.rest = 28;
+            vm.userData.setting.cycles = 27;
+            vm.userData.setting.tabatas = 26;
+
+            // user clicks the "Save Settings" button
+            vm.saveSettings();
+
+            expect(vm.showHttpError).toBe(true);
+        });
+
     });
 
 })();

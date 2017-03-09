@@ -173,7 +173,8 @@ module.exports = function (grunt) {
   grunt.registerTask('jenkins-build',
     [
 	  'clean:dist',
-	  'ngtemplates',
+      'jshint',
+      'ngtemplates',
       'concat',
       'uglify',
 	  'clean:temp',
