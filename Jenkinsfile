@@ -5,6 +5,7 @@ pipeline {
         stage('Install') {
             steps {
                 echo 'Install..'
+		whoami
 		sh 'npm install client'
             }
         }
