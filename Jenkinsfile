@@ -1,22 +1,40 @@
 pipeline {
-    agent { docker 'node:4.5.0' }
+    agent { docker 'node:6.10.0' }
 
     stages {
-        stage('Build') {
+        stage('Install') {
+            steps {
+                echo 'Install..'
+		sh 'cd client'
+		sh 'npm install'
+            }
+        }
+	stage('Build') {
             steps {
                 echo 'Building..'
-		sh 'chmod 777 ./scripts.sh'
-		sh './scripts.sh build'
+		sh 'cd client'
+		sh 'grunt jenkins-build'
+            }
+        }
+	stage('Check Style') {
+            steps {
+                echo 'Building..'
+		sh 'cd client'
+		sh 'grunt jenkins-style'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Unit Test..'
+		sh 'cd client'
+		sh 'grunt jenkins-test'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+		sh 'cd client'
+		sh 'grunt jenkins-deploy'
             }
         }
     }
