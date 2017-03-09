@@ -5,36 +5,31 @@ pipeline {
         stage('Install') {
             steps {
                 echo 'Install..'
-		sh 'cd client'
-		sh 'npm install'
+		sh 'npm install client'
             }
         }
 	stage('Build') {
             steps {
                 echo 'Building..'
-		sh 'cd client'
-		sh 'grunt jenkins-build'
+		sh 'cd client; grunt jenkins-build'
             }
         }
 	stage('Check Style') {
             steps {
                 echo 'Building..'
-		sh 'cd client'
-		sh 'grunt jenkins-style'
+		sh 'cd client; grunt jenkins-style'
             }
         }
         stage('Test') {
             steps {
                 echo 'Unit Test..'
-		sh 'cd client'
-		sh 'grunt jenkins-test'
+		sh 'cd client; grunt jenkins-test'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-		sh 'cd client'
-		sh 'grunt jenkins-deploy'
+		sh 'cd client; grunt jenkins-deploy'
             }
         }
     }
