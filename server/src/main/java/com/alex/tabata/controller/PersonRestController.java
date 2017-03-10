@@ -24,7 +24,7 @@ import com.alex.tabata.persistence.SettingRepository;
 @RequestMapping("/person")
 public class PersonRestController {
 
-	private static final Logger log = LoggerFactory.getLogger(PersonRestController.class.getName());
+	private static final Logger LOG = LoggerFactory.getLogger(PersonRestController.class.getName());
 	
 	@Autowired
 	PersonRepository personRepository;
@@ -39,7 +39,7 @@ public class PersonRestController {
 		if (optionalPerson.isPresent()) {
 			return new ResponseEntity<Person>(optionalPerson.get(), HttpStatus.OK);
 		} else {
-            log.info("Person with userName " + userName + " not found");
+            LOG.info("Person with userName " + userName + " not found");
             return new ResponseEntity<Person>(HttpStatus.NOT_FOUND);
         }
 	}
@@ -51,7 +51,7 @@ public class PersonRestController {
 		Optional<Person> optionalCurrentPerson = personRepository.findById(id);
         
         if (!optionalCurrentPerson.isPresent()) {
-            log.info("Person with id " + id + " not found");
+            LOG.info("Person with id " + id + " not found");
             return new ResponseEntity<Person>(HttpStatus.NOT_FOUND);
         }
  

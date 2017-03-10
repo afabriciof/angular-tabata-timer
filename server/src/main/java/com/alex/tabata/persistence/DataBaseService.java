@@ -14,7 +14,7 @@ import com.alex.tabata.model.Setting;
 @Service
 public class DataBaseService {
 
-	private static final Logger log = LoggerFactory.getLogger(DataBaseService.class.getName());
+	private static final Logger LOG = LoggerFactory.getLogger(DataBaseService.class.getName());
 
 	private final PersonRepository personRepository;
 	private final SettingRepository settingRepository;
@@ -50,34 +50,34 @@ public class DataBaseService {
 
 	public void performQueries() {
 		// fetch all customers
-		log.info("Customers found with findAll():");
-		log.info("-------------------------------");
+		LOG.info("Customers found with findAll():");
+		LOG.info("-------------------------------");
 		for (Person person : personRepository.findAll()) {
-			log.info(person.toString());
+			LOG.info(person.toString());
 		}
-		log.info("");
+		LOG.info("");
 		
 		// fetch an individual customer by ID
 		Person customer = personRepository.findOne(2L);
-		log.info("Customer found with findOne(2L):");
-		log.info("--------------------------------");
-		if (customer != null) log.info(customer.toString());
-		log.info("");
+		LOG.info("Customer found with findOne(2L):");
+		LOG.info("--------------------------------");
+		if (customer != null) LOG.info(customer.toString());
+		LOG.info("");
 		
 		// fetch customers by last name
-		log.info("Customer found with findByLastName('Bauer'):");
-		log.info("--------------------------------------------");
+		LOG.info("Customer found with findByLastName('Bauer'):");
+		LOG.info("--------------------------------------------");
 		for (Person bauer : personRepository.findByLastName("Bauer")) {
-			log.info(bauer.toString());
+			LOG.info(bauer.toString());
 		}
-		log.info("");
+		LOG.info("");
 
 		// fetch customers by user name
-		log.info("Customer found with findFirstByUserName('afernandez'):");
-		log.info("--------------------------------------------");
+		LOG.info("Customer found with findFirstByUserName('afernandez'):");
+		LOG.info("--------------------------------------------");
 		Optional<Person> afernandez = personRepository.findFirstByUserName("afernandez"); 
-		if (afernandez.isPresent()) log.info(afernandez.get().toString());
-		log.info("");
+		if (afernandez.isPresent()) LOG.info(afernandez.get().toString());
+		LOG.info("");
 	}
 
 }

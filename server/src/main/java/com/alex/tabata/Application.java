@@ -14,19 +14,19 @@ import com.alex.tabata.persistence.DataBaseService;
 public class Application implements ApplicationListener<ApplicationReadyEvent> {
 	
 	private static final String APPLICATION_VERSION = "0.0.1";
-	private static final Logger log = LoggerFactory.getLogger(Application.class.getName());
+	private static final Logger LOG = LoggerFactory.getLogger(Application.class.getName());
 	
 	@Autowired
 	DataBaseService dataBaseService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-        log.info("Tabata Application Started!");
+        LOG.info("Tabata Application Started!");
     }
 
 	@Override
     public void onApplicationEvent(final ApplicationReadyEvent event) {
-    	log.info("ApplicationReadyEvent");
+    	LOG.info("ApplicationReadyEvent");
     	dataBaseService.populateDataBase();
     	dataBaseService.performQueries();
     }
